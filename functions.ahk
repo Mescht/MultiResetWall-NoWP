@@ -176,6 +176,8 @@ SwitchInstance(idx)
       cmd := Format("python.exe obs.py 1 {1}", idx)
       Run, %cmd%,, Hide
     }
+    FileDelete, currInst.txt
+    FileAppend, %idx%, currInst.txt
     locked[idx] := false
     pid := PIDs[idx]
     if (affinity) {
