@@ -7,19 +7,47 @@ RAlt::Suspend ; Pause all macros
 return
 #IfWinActive, Minecraft
   {
-    *U:: ExitWorld() ; Reset
+    *P:: ExitWorld() ; Reset
+    ; BG Reset
+    *U::
+      ResetInstance(1)
+    return
+    *I::
+      ResetInstance(2)
+    return
+    *O::
+      ResetInstance(3)
+    return
+    *J::
+      ResetInstance(4)
+    return
+    *K::
+      ResetInstance(5)
+    return
+    *L::
+      ResetInstance(6)
+    return
+    *M::
+      ResetInstance(7)
+    return
+    *,::
+      ResetInstance(8)
+    return
+    *.::
+      ResetInstance(9)
+    return
   }
-return
+  return
 
-#IfWinActive, Fullscreen Projector
-  {
-    *E::ResetInstance(MousePosToInstNumber())
-    *R::SwitchInstance(MousePosToInstNumber())
-    *F::FocusReset(MousePosToInstNumber())
-    *T::ResetAll()
-    +LButton::LockInstance(MousePosToInstNumber()) ; lock an instance so the above "blanket reset" functions don't reset it
+  #IfWinActive, Fullscreen Projector
+    {
+      *E::ResetInstance(MousePosToInstNumber())
+      *R::SwitchInstance(MousePosToInstNumber())
+      *F::FocusReset(MousePosToInstNumber())
+      *T::ResetAll()
+      +LButton::LockInstance(MousePosToInstNumber()) ; lock an instance so the above "blanket reset" functions don't reset it
 
-    ; Reset keys (1-9)
+      ; Reset keys (1-9)
     *1::
       ResetInstance(1)
     return
